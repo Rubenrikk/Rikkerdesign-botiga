@@ -1,0 +1,6 @@
+#wp-submit {
+    background-color: #eb4034 !important; 
+}
+#wp-submit:hover {
+    background-color: #ff0000 !important; 
+}
