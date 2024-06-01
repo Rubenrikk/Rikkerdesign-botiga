@@ -156,3 +156,11 @@ function   QuadLayers_change_order_status( $order_id ) {
   }
 }
 add_action('woocommerce_thankyou','QuadLayers_change_order_status');
+
+add_filter( 'woocommerce_order_number', 'change_woocommerce_order_number' );
+
+function change_woocommerce_order_number( $order_id ) {
+    $prefix = 'HGV-';
+    $new_order_id = $prefix . $order_id;
+    return $new_order_id;
+}
