@@ -147,3 +147,12 @@ function add_in_progress_to_order_statuses( $order_statuses ) {
 }
 add_action( 'init', 'register_in_progress_order_status' );
 add_filter( 'wc_order_statuses', 'add_in_progress_to_order_statuses' );
+
+function   QuadLayers_change_order_status( $order_id ) {  
+  if ( ! $order_id ) {return;}            
+  $order = wc_get_order( $order_id );
+  if( 'processing'== $order->get_status() ) {
+      $order->update_status( 'wc-in-progress' );
+  }
+}
+add_action('woocommerce_thankyou','QuadLayers_change_order_status');
