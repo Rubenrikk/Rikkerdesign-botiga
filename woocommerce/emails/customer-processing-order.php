@@ -27,7 +27,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <?php /* translators: %s: Customer first name */ ?>
 <p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
 <?php /* translators: %s: Order number */ ?>
-<p><?php printf( esc_html__( 'We willen je graag laten weten dat we bestelling %s hebben ontvangen en dat deze verwerkt wordt. Je kunt de status van jouw bastelling volgen in jouw account. Mocht je geen account hebben aangemaakt dan kun je de status volgen met de volgende link: <a href="https://shop.hgvhengelo.nl/bestelling-volgen/">Bestelling volgen</a> Je ontvangt van ons een mail wanneer jouw bestelling klaar is. Je vindt hieronder de beverstiging van jouw bestelling:', 'woocommerce' ), esc_html( $order->get_order_number() ) ); ?></p>
+<p><?php printf( esc_html__( 'We willen je graag laten weten dat we bestelling %s hebben ontvangen en dat deze verwerkt wordt. Je kunt de status van jouw bastelling volgen in jouw account. Mocht je geen account hebben aangemaakt dan kun je de status volgen met de volgende link: https://shop.hgvhengelo.nl/bestelling-volgen/. Je ontvangt van ons een mail wanneer jouw bestelling klaar is. Je vindt hieronder de beverstiging van jouw bestelling:', 'woocommerce' ), esc_html( $order->get_order_number() ) ); ?></p>
 
 <?php
 
