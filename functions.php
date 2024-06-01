@@ -122,3 +122,28 @@ $author = $comment->comment_author;
 
 return $author;
 }
+
+// Register new status
+function register_in_progress_order_status() {
+  register_post_status( 'wc-in-progress', array(
+      'label'                     => 'Wordt verwerkt',
+      'public'                    => true,
+      'show_in_admin_status_list' => true,
+      'show_in_admin_all_list'    => true,
+      'exclude_from_search'       => false,
+      'label_count'               => _n_noop( 'In progress (%s)', 'In progress (%s)' )
+  ) );
+}
+// Add custom status to order status list
+function add_in_progress_to_order_statuses( $order_statuses ) {
+  $new_order_statuses = array();
+  foreach ( $order_statuses as $key => $status ) {
+      $new_order_statuses[ $key ] = $status;
+      if ( 'wc-processing' === $key ) {
+          $new_order_statuses['wc-in-progress'] = 'Wordt verwerkt';
+      }
+  }
+  return $new_order_statuses;
+}
+add_action( 'init', 'register_in_progress_order_status' );
+add_filter( 'wc_order_statuses', 'add_in_progress_to_order_statuses' );
