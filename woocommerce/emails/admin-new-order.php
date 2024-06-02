@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php /* translators: %s: Customer billing full name */ ?>
-<p><?php printf( esc_html__( 'You’ve received the following order from %s:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+<p><?php printf( esc_html__( 'Je hebt de volgende bestelling ontvangen van %s. Houd er rekening mee dat de status van deze mail in Freescout moet worden bijgehouden maar ook in wordpress zodat klanten en wij zelf de juiste informatie zien en hier geen fouten in maken! Je kunt hiervoor gebruikmaken van de verschillende workflows. Let wel dat de status in wordpress handmatig moet worden aangepast', 'woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 <?php
 
 /*
