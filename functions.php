@@ -41,11 +41,29 @@ function add_support_to_admin_bar( $wp_admin_bar ) {
 }
 add_action( 'admin_bar_menu', 'add_support_to_admin_bar', 999 );
 
+//Rikkerdesign Support line
+function add_support_to_admin_bar( $wp_admin_bar ) {
+  if ( is_user_logged_in() ) {
+    $current_user = wp_get_current_user();
+    $support_text = 'Komt u er niet helemaal uit? Mail ons gerust!';
+    $args = array(
+      'id' => 'custom-support',
+      'title' => $support_text,
+      'parent' => 'top-secondary',
+      'meta' => array(
+        'class' => 'custom-support-menu-item'
+      )
+    );
+    $wp_admin_bar->add_node( $args );
+  }
+}
+add_action( 'admin_bar_menu', 'add_support_to_admin_bar', 999 );
+
 //Rikkerdesign login page
 function wpb_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(https://rikkerdesign.nl/wp-content/uploads/2021/12/Logo-Groot-Top-1.png);
+            background-image: url(https://cloud.rikkermediahub.com/apps/files_sharing/publicpreview/tak48jfC5rjaLQy?file=/&fileId=22687&x=3420&y=2224&a=true&etag=9aac779629811a337ca5ee0d00d4411d);
         height:140px;
         width:294px;
         background-size: 294px 140px;
@@ -59,7 +77,7 @@ add_action( 'login_enqueue_scripts', 'wpb_login_logo' );
 function my_login_page_custom_bg_image() { ?>
 <style type="text/css">
   body{
-    background-image:url(https://rikkerdesign.nl/wp-content/uploads/2022/09/Achtergrond-Websites-scaled.jpg) !important;
+    background-image:url(https://cloud.rikkermediahub.com/apps/files_sharing/publicpreview/7RCNixzZeRSFALy?file=/&fileId=686290&x=3420&y=2224&a=true&etag=1e7566ab4fd2298aaa29fd9499ab21fe) !important;
     background-size:cover !important;
     background-position:center center !important;
   }
@@ -68,12 +86,12 @@ function my_login_page_custom_bg_image() { ?>
 add_action( 'login_enqueue_scripts', 'my_login_page_custom_bg_image' );
 
 function my_loginURL() {
-    return 'https://www.rikkerdesign.nl';
+    return 'https://www.rikkermediahub.com';
 }
 add_filter('login_headerurl', 'my_loginURL');
 
 function my_loginURLtext() {
-    return 'Rikkerdesign';
+    return 'RikkerMediaHub';
 }
 add_filter('login_headertitle', 'my_loginURLtext');
 
